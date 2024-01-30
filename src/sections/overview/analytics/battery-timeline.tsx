@@ -1,33 +1,89 @@
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Stack from '@mui/material';
-import Typography from '@mui/material';
-import List from '@mui/material/List';
-import { CardContent, CardHeader } from '@mui/material';
+import Timeline from '@mui/lab/Timeline';
+import { CardContent } from '@mui/material';
+import TimelineDot from '@mui/lab/TimelineDot';
+import Typography from '@mui/material/Typography';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem';
+
+import { fDateTime } from 'src/utils/format-time';
 
 import Scrollbar from 'src/components/scrollbar';
 
-import AlertItem from './alert-item';
+// ----------------------------------------------------------------------
 
-// ------------------------------------------------------
+const history = {
+  timeline: [
+    {
+      title: 'Hello12',
+      time: new Date(),
+    },
+    {
+      title: 'Hello12',
+      time: new Date(),
+    },
+    {
+      title: 'Hello12',
+      time: new Date(),
+    },
+    {
+      title: 'Hello12',
+      time: new Date(),
+    },
+    {
+      title: 'Hello12',
+      time: new Date(),
+    },
+    {
+      title: 'Hello12',
+      time: new Date(),
+    },
+    {
+      title: 'Hello12',
+      time: new Date(),
+    },
+  ],
+};
 
 export default function BatteryTimelineCard() {
-  const notificationMap = Array.from({ length: 10 }).map((_, index) => ({
-    id: index.toString(),
-    title: 'Battery Low',
-    createdAt: new Date(),
-    type: 'warning',
-  }));
-
   return (
     <Card>
-      <CardHeader title="Timeline" />
       <CardContent sx={{ padding: 0 }}>
         <Scrollbar sx={{ height: 400 }}>
-          <List>
-            {notificationMap.map((notification) => (
-              <AlertItem key={notification.id} notification={notification} />
-            ))}
-          </List>
+          <Timeline
+            sx={{
+              p: 3,
+              m: 0,
+              [`& .${timelineItemClasses.root}:before`]: {
+                flex: 0,
+                padding: 0,
+              },
+            }}
+          >
+            {history.timeline.map((item, index) => {
+              const lastTimeline = index === history.timeline.length - 1;
+
+              return (
+                <TimelineItem key={item.title}>
+                  <TimelineSeparator>
+                    <TimelineDot color="primary" />
+                    {lastTimeline ? null : <TimelineConnector />}
+                  </TimelineSeparator>
+
+                  <TimelineContent>
+                    <Typography variant="subtitle2">{item.title}</Typography>
+
+                    <Box sx={{ color: 'text.disabled', typography: 'caption', mt: 0.5 }}>
+                      {fDateTime(item.time)}
+                    </Box>
+                  </TimelineContent>
+                </TimelineItem>
+              );
+            })}
+          </Timeline>
         </Scrollbar>
       </CardContent>
     </Card>

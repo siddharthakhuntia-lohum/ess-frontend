@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import {
@@ -12,6 +14,7 @@ import {
 } from '@mui/material';
 
 // ------------------------------------------------------
+
 const customStyles = {
   '& td': {
     borderBottom: 'none',
@@ -29,15 +32,15 @@ const CustomTableRow: React.FC<TableRowProps> = (props) => (
   <TableRow {...props} sx={customStyles} />
 );
 
-export default function InverterInfo() {
-  const invModel = 'Sungrow SG5L-D';
-  const invPowerRating = '5';
-  const invType = 'Grid-Tied';
-  const invEfficiency = '95';
-  const installDate = '2021-10-01';
-  const location = 'Delhi';
-  const warrantyPeriod = '5';
-  const designLife = '10';
+export default function LiveDataCard() {
+  const [voltage, setVoltage] = useState(20);
+  const [current, setCurrent] = useState(12);
+  const [temp, setTemp] = useState(29);
+  const [highestTemp, setHighestTemp] = useState(35);
+  const [lowestTemp, setLowestTemp] = useState(22);
+  const [cellVoltage, setCellVoltage] = useState(3.5);
+  const [highestCellVoltage, setHighestCellVoltage] = useState(7.2);
+  const [lowestCellVoltage, setLowestCellVoltage] = useState(0.5);
 
   return (
     <Card>
@@ -47,66 +50,66 @@ export default function InverterInfo() {
             <TableBody>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Inverter Model:</Typography>
+                  <Typography variant="body1">Voltage :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{invModel}</Typography>
+                  <Typography variant="body1">{voltage} v</Typography>
                 </CustomTableCell>
               </CustomTableRow>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Inverter Type:</Typography>
+                  <Typography variant="body1">Current :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{invType}</Typography>
+                  <Typography variant="body1">{current} A</Typography>
                 </CustomTableCell>
               </CustomTableRow>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Inverter Power Rating:</Typography>
+                  <Typography variant="body1">Temperature :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{invPowerRating} kW</Typography>
+                  <Typography variant="body1">{temp}°C</Typography>
                 </CustomTableCell>
               </CustomTableRow>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Inverter Efficiency:</Typography>
+                  <Typography variant="body1">Highest Temperature :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{invEfficiency}%</Typography>
+                  <Typography variant="body1">{highestTemp}°C</Typography>
                 </CustomTableCell>
               </CustomTableRow>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Installation Date:</Typography>
+                  <Typography variant="body1">Lowest Temperature :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{installDate}</Typography>
+                  <Typography variant="body1">{lowestTemp}°C</Typography>
                 </CustomTableCell>
               </CustomTableRow>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Location:</Typography>
+                  <Typography variant="body1">Cell Voltage :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{location}</Typography>
+                  <Typography variant="body1">{cellVoltage} v</Typography>
                 </CustomTableCell>
               </CustomTableRow>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Warranty Period:</Typography>
+                  <Typography variant="body1">Highest Cell Voltage :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{warrantyPeriod} years</Typography>
+                  <Typography variant="body1">{highestCellVoltage} v</Typography>
                 </CustomTableCell>
               </CustomTableRow>
               <CustomTableRow>
                 <CustomTableCell>
-                  <Typography variant="body1">Design Life:</Typography>
+                  <Typography variant="body1">Lowest Cell Voltage :</Typography>
                 </CustomTableCell>
                 <CustomTableCell align="center">
-                  <Typography variant="body1">{designLife} years</Typography>
+                  <Typography variant="body1">{lowestCellVoltage} v</Typography>
                 </CustomTableCell>
               </CustomTableRow>
             </TableBody>

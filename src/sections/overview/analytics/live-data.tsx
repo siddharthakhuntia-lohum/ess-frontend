@@ -1,120 +1,74 @@
-import { useState } from 'react';
-
 import Card from '@mui/material/Card';
-import Table from '@mui/material/Table';
-import {
-  TableRow,
-  TableBody,
-  TableCell,
-  Typography,
-  TableRowProps,
-  TableContainer,
-  TableCellProps,
-  CardContent,
-} from '@mui/material';
+import { Stack, Divider, CardHeader, Typography, CardContent } from '@mui/material';
+
+import Iconify from 'src/components/iconify';
 
 // ------------------------------------------------------
 
-const customStyles = {
-  '& td': {
-    borderBottom: 'none',
-  },
-  '& th': {
-    borderBottom: 'none',
-  },
-  height: '10px',
-};
-
-const CustomTableCell: React.FC<TableCellProps> = (props) => (
-  <TableCell {...props} sx={{ py: 1.5 }} />
+const CustomStack = ({ children }: { children: React.ReactNode }) => (
+    <Stack
+        direction="row"
+        spacing={2}
+        display="flex"
+        justifyContent="space-around"
+        alignItems="center" 
+        sx={{ width: '100%', minHeight: "50px" }}
+    >
+        {children}
+    </Stack>
 );
-const CustomTableRow: React.FC<TableRowProps> = (props) => (
-  <TableRow {...props} sx={customStyles} />
+
+const CustomTypography = ({ children }: { children: React.ReactNode }) => (
+  <Typography sx={{ width: '50%', textAlign: 'center' }}>{children}</Typography>
 );
 
 export default function LiveDataCard() {
-  const [voltage, setVoltage] = useState(20);
-  const [current, setCurrent] = useState(12);
-  const [temp, setTemp] = useState(29);
-  const [highestTemp, setHighestTemp] = useState(35);
-  const [lowestTemp, setLowestTemp] = useState(22);
-  const [cellVoltage, setCellVoltage] = useState(3.5);
-  const [highestCellVoltage, setHighestCellVoltage] = useState(7.2);
-  const [lowestCellVoltage, setLowestCellVoltage] = useState(0.5);
-
   return (
     <Card>
+    <CardHeader
+        title="Live Data"
+        avatar={<Iconify icon="openmoji:green-circle" />}
+    />
       <CardContent>
-        <TableContainer>
-          <Table>
-            <TableBody>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Voltage :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{voltage} v</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Current :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{current} A</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Temperature :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{temp}°C</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Highest Temperature :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{highestTemp}°C</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Lowest Temperature :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{lowestTemp}°C</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Cell Voltage :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{cellVoltage} v</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Highest Cell Voltage :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{highestCellVoltage} v</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-              <CustomTableRow>
-                <CustomTableCell>
-                  <Typography variant="body1">Lowest Cell Voltage :</Typography>
-                </CustomTableCell>
-                <CustomTableCell align="center">
-                  <Typography variant="body1">{lowestCellVoltage} v</Typography>
-                </CustomTableCell>
-              </CustomTableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <CustomStack>
+          <CustomTypography>
+            Voltage: 5 mV
+
+          </CustomTypography>
+          <Divider orientation="vertical" flexItem sx={{ borderStyle: 'dashed', width: '20px' }} />
+          <CustomTypography>
+            Current: 12 A
+          
+          </CustomTypography>
+        </CustomStack>
+        <Divider sx={{ my: 2, borderStyle: 'dashed' }} />
+        <CustomStack>
+          <CustomTypography>
+            Temperature: 27 °C
+            <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
+              (0.5%)
+            </Typography>
+          </CustomTypography>
+          <Divider orientation="vertical" flexItem sx={{ borderStyle: 'dashed', width: '20px' }} />
+          <CustomTypography>
+            Module No.: B5A54ASD
+            <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
+              (Changed Required)
+            </Typography>
+          </CustomTypography>
+        </CustomStack>
+        <Divider sx={{ my: 2, borderStyle: 'dashed' }} />
+        <CustomStack>
+          <CustomTypography>
+            Highest Temperature: 31 °C
+
+          </CustomTypography>
+          <Divider orientation="vertical" flexItem sx={{ borderStyle: 'dashed', width: '20px' }} />
+          <CustomTypography>
+            Lowest Temperature: 23 °C
+       
+          </CustomTypography>
+        </CustomStack>
       </CardContent>
     </Card>
   );

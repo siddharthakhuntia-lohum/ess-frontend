@@ -1,32 +1,25 @@
 import Card from '@mui/material/Card';
-import Table from '@mui/material/Table';
 import {
-  Avatar,
-  Button,
   Box,
+  Grid,
+  Stack,
+  Button,
   TableRow,
-  TableBody,
   TableCell,
   Typography,
-  TableContainer,
-  CardContent,
   CardHeader,
-  TableCellProps,
-  TableRowProps,
-  Stack,
-  ListItemText,
-  Divider,
   IconButton,
-  Grid,
+  CardContent,
+  ListItemText,
+  TableRowProps,
+  TableCellProps,
 } from '@mui/material';
-import Iconify from 'src/components/iconify/iconify';
 
 import Image from 'src/components/image';
+import Iconify from 'src/components/iconify/iconify';
 
-import batteryImage from './battery.png';
-import BatteryGauge from 'react-battery-gauge';
 import LiveDataCard from './live-data';
-import OrderDetailsHistory from 'src/sections/order/order-details-history';
+import batteryImage from './battery.png';
 // ------------------------------------------------------
 
 const customStyles = {
@@ -381,21 +374,22 @@ export default function BatteryInfo() {
   };
 
   return (
-    <Card>
-      <PerformanceSpecificationsCard performanceData={performanceData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+    <></>
+    // <Card>
+    //   <PerformanceSpecificationsCard performanceData={performanceData} />
+    //   <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <TechnicalSpecificationsCard technicalData={technicalData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+    //   <TechnicalSpecificationsCard technicalData={technicalData} />
+    //   <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <SafetyComplianceCard safetyData={safetyData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+    //   <SafetyComplianceCard safetyData={safetyData} />
+    //   <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <MonitoringControlCard monitoringData={monitoringData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+    //   <MonitoringControlCard monitoringData={monitoringData} />
+    //   <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <EnvironmentalEconomicCard environmentalData={environmentalData} />
-    </Card>
+    //   <EnvironmentalEconomicCard environmentalData={environmentalData} />
+    // </Card>
   );
 
   const invModel = 'Sungrow SG5L-D';
@@ -428,7 +422,7 @@ export default function BatteryInfo() {
           </Stack>
         }
         title={<Image src={batteryImage.src} sx={{ width: 100, height: 100, mx: 'auto' }} />}
-      ></CardHeader>
+      />
       <CardContent>
         {/* <Stack direction="row" spacing={1} justifyContent="flex-start" sx={{ px: 3, pt: 3 }}>
               <Typography variant="body1">State of Charge (SoC):</Typography>
@@ -449,7 +443,7 @@ export default function BatteryInfo() {
      */}
         <Grid container spacing={2}>
           <Grid xs={4}>{renderOverview}</Grid>
-          <Grid xs={1}></Grid>
+          <Grid xs={1} />
           <Grid xs={7}>
             <LiveDataCard />
           </Grid>

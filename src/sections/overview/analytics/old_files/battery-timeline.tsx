@@ -1,14 +1,14 @@
 import Card from '@mui/material/Card';
 import List from '@mui/material/List';
-import { CardContent } from '@mui/material';
+import { CardHeader, CardContent } from '@mui/material';
 
 import Scrollbar from 'src/components/scrollbar';
 
-import AlertItem from './old_files/alert-item';
+import AlertItem from './alert-item';
 
 // ------------------------------------------------------
 
-export default function BatteryAlertsCard() {
+export default function BatteryTimelineCard() {
   const notificationMap = Array.from({ length: 10 }).map((_, index) => ({
     id: index.toString(),
     title: 'Battery Low',
@@ -18,6 +18,7 @@ export default function BatteryAlertsCard() {
 
   return (
     <Card>
+      <CardHeader title="Timeline" />
       <CardContent sx={{ padding: 0 }}>
         <Scrollbar sx={{ height: 400 }}>
           <List>
