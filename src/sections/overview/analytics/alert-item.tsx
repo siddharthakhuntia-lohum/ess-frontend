@@ -1,7 +1,9 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import ListItemText from '@mui/material/ListItemText';
+import { ListItemAvatar } from '@mui/material';
 import ListItemButton from '@mui/material/ListItemButton';
+import Iconify from 'src/components/iconify/iconify';
 
 import { fToNow } from 'src/utils/format-time';
 
@@ -29,21 +31,44 @@ export default function AlertItem({ notification }: NotificationItemProps) {
           alignItems="center"
           sx={{ typography: 'caption', color: 'text.disabled' }}
           divider={
-            <Box
-              sx={{
-                width: 2,
-                height: 2,
-                bgcolor: 'currentColor',
-                mx: 0.5,
-                borderRadius: '50%',
-              }}
-            />
+            <>
+              <Box
+                sx={{
+                  width: 2,
+                  height: 2,
+                  bgcolor: 'currentColor',
+                  mx: 0.5,
+                  borderRadius: '50%',
+                }}
+              />
+            </>
           }
         >
           {fToNow(notification.createdAt)}
         </Stack>
       }
     />
+  );
+
+  const renderIcon = (
+    <ListItemAvatar>
+      <Stack
+        alignItems="center"
+        justifyContent="center"
+        sx={{
+          width: 40,
+          height: 40,
+          borderRadius: '50%',
+          bgcolor: 'background.neutral',
+        }}
+      >
+        <Box
+          component="img"
+          src="/assets/icons/notification/ic_mail.svg"
+          sx={{ width: 24, height: 24 }}
+        />
+      </Stack>
+    </ListItemAvatar>
   );
 
   const tagsAction = (
@@ -67,9 +92,11 @@ export default function AlertItem({ notification }: NotificationItemProps) {
         borderBottom: (theme) => `dashed 1px ${theme.palette.divider}`,
       }}
     >
-      <Stack sx={{ flexGrow: 1 }}>
+      <Stack sx={{ flexGrow: 1 }} direction="row">
+        {renderIcon}
         {renderText}
-        {notification.type === 'tags' && tagsAction}
+
+        {/* {notification.type === 'tags' && tagsAction} */}
       </Stack>
     </ListItemButton>
   );

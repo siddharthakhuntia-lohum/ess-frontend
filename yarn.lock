@@ -7823,6 +7823,11 @@ react-apexcharts@^1.4.1:
   dependencies:
     prop-types "^15.8.1"
 
+react-battery-gauge@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/react-battery-gauge/-/react-battery-gauge-1.0.6.tgz"
+  integrity sha512-zmGd5XamEfZHEKrH8GBsfRO5g9fWdKa7/n4YSghZJQwk15R3RycByqIoVQBnuVxLk/KwPnqlVnFeyLe+ulMHMg==
+
 react-d3-speedometer@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/react-d3-speedometer/-/react-d3-speedometer-1.1.0.tgz"

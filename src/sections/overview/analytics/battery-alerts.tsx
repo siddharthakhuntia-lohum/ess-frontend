@@ -1,6 +1,8 @@
 import Card from '@mui/material/Card';
+import Stack from '@mui/material';
+import Typography from '@mui/material';
 import List from '@mui/material/List';
-import { CardContent } from '@mui/material';
+import { CardContent, CardHeader } from '@mui/material';
 
 import Scrollbar from 'src/components/scrollbar';
 
@@ -17,16 +19,17 @@ export default function BatteryAlertsCard() {
   }));
 
   return (
-    <Scrollbar>
-      <Card sx={{ overflow: 'auto', maxHeight: '400px' }}>
-        <CardContent>
+    <Card>
+      <CardHeader title="Alert Information" />
+      <CardContent sx={{ padding: 0 }}>
+        <Scrollbar sx={{ height: 400 }}>
           <List>
             {notificationMap.map((notification) => (
               <AlertItem key={notification.id} notification={notification} />
             ))}
           </List>
-        </CardContent>
-      </Card>
-    </Scrollbar>
+        </Scrollbar>
+      </CardContent>
+    </Card>
   );
 }
