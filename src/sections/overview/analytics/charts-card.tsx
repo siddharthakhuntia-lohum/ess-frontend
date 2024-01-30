@@ -15,7 +15,7 @@ export default function ChartsCard() {
 
   return (
     <Grid container spacing={3} alignItems="stretch">
-      <Grid item xs={6} sm={4} md={2} lg={2}>
+      <Grid item xs={6} sm={4}>
         <BatteryEfficiencyCard
           title="Battery Efficiency (%)"
           icon="eva:diagonal-arrow-right-up-fill"
@@ -28,7 +28,7 @@ export default function ChartsCard() {
           }}
         />
       </Grid>
-      <Grid item xs={6} sm={4} md={2} lg={2}>
+      <Grid item xs={6} sm={4}>
         <GHGSavingsCard
           title="GHG Savings (in $)"
           icon="eva:diagonal-arrow-right-up-fill"
@@ -43,7 +43,7 @@ export default function ChartsCard() {
           }}
         />
       </Grid>
-      <Grid item xs={6} sm={4} md={2} lg={2}>
+      <Grid item xs={6} sm={4}>
         <TemperatureTrends
           title="Temperature trends (in °C)"
           icon="eva:diagonal-arrow-right-up-fill"
@@ -58,7 +58,7 @@ export default function ChartsCard() {
           }}
         />
       </Grid>
-      <Grid item xs={6} sm={4} md={2} lg={2}>
+      <Grid item xs={6} sm={4}>
         <CostPerEnergyCard
           title="Cost per unit of energy (in $)"
           icon="eva:diagonal-arrow-right-up-fill"
@@ -73,7 +73,7 @@ export default function ChartsCard() {
           }}
         />
       </Grid>
-      <Grid item xs={6} sm={4} md={2} lg={2}>
+      <Grid item xs={6} sm={4}>
         <EnergyIOCard
           title="Energy Input Output (in kJ)"
           icon="eva:diagonal-arrow-right-up-fill"
@@ -88,7 +88,7 @@ export default function ChartsCard() {
           }}
         />
       </Grid>
-      <Grid item xs={6} sm={4} md={2} lg={2}>
+      <Grid item xs={6} sm={4}>
         <LoadDemandSupplyCard
           title="Load Demand Supply (%)"
           icon="eva:diagonal-arrow-right-up-fill"
