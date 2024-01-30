@@ -12,7 +12,10 @@ import {
   TableCellProps,
   TableRowProps,
   Stack,
+  ListItemText,
+  Grid,
 } from '@mui/material';
+import Iconify from 'src/components/iconify/iconify';
 
 import Image from 'src/components/image';
 
@@ -37,6 +40,56 @@ const CustomTableRow: React.FC<TableRowProps> = (props) => (
   <TableRow {...props} sx={customStyles} />
 );
 
+const renderOverview = (
+  <Stack component={Card} spacing={2} sx={{ p: 3 }}>
+    {[
+      {
+        label: 'Date Posted',
+        value: 'test',
+        icon: <Iconify icon="solar:calendar-date-bold" />,
+      },
+      {
+        label: 'Expiration date',
+        value: 'test',
+        icon: <Iconify icon="solar:calendar-date-bold" />,
+      },
+      {
+        label: 'Employment type',
+        value: 'Test',
+        icon: <Iconify icon="solar:clock-circle-bold" />,
+      },
+      {
+        label: 'Offered salary',
+        value: 'Negotiable',
+        icon: <Iconify icon="solar:wad-of-money-bold" />,
+      },
+      {
+        label: 'Experience',
+        value: 'experience',
+        icon: <Iconify icon="carbon:skill-level-basic" />,
+      },
+    ].map((item) => (
+      <Stack key={item.label} spacing={1.5} direction="row">
+        {item.icon}
+        <ListItemText
+          primary={item.label}
+          secondary={item.value}
+          primaryTypographyProps={{
+            typography: 'body2',
+            color: 'text.secondary',
+            mb: 0.5,
+          }}
+          secondaryTypographyProps={{
+            typography: 'subtitle2',
+            color: 'text.primary',
+            component: 'span',
+          }}
+        />
+      </Stack>
+    ))}
+  </Stack>
+);
+
 export default function BatteryInfo() {
   const invModel = 'Sungrow SG5L-D';
   const invPowerRating = '5';
@@ -57,7 +110,7 @@ export default function BatteryInfo() {
   const CDS = 1;
 
   return (
-    <Card>
+    <Card sx={{ background: '#161c25' }}>
       <CardHeader
         action={
           <Stack direction="row" sx={{ mt: 4 }}>
@@ -87,8 +140,11 @@ export default function BatteryInfo() {
               <Typography variant="body1">{soc}%</Typography>
             </Stack>
      */}
+        <Grid container>
+          <Grid xs={6}>{renderOverview}</Grid>
+        </Grid>
         <Stack direction="row">
-          <TableContainer>
+          {/* <TableContainer>
             <Table>
               <TableBody>
                 <TableRow sx={customStyles}>
@@ -133,8 +189,8 @@ export default function BatteryInfo() {
                 </TableRow>
               </TableBody>
             </Table>
-          </TableContainer>
-          <TableContainer>
+          </TableContainer> */}
+          {/* <TableContainer>
             <Table>
               <TableBody>
                 <CustomTableRow>
@@ -203,7 +259,7 @@ export default function BatteryInfo() {
                 </CustomTableRow>
               </TableBody>
             </Table>
-          </TableContainer>
+          </TableContainer> */}
         </Stack>
       </CardContent>
     </Card>
