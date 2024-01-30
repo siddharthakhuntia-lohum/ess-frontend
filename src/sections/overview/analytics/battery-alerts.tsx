@@ -17,8 +17,8 @@ export default function BatteryAlertsCard() {
   }));
 
   return (
-      <Scrollbar>
-    <Card sx={{ overflow: 'auto', maxHeight: "400px"}}>
+    <Scrollbar>
+      <Card sx={{ overflow: 'auto', maxHeight: '400px' }}>
         <CardContent>
           <List>
             {notificationMap.map((notification) => (
@@ -26,7 +26,7 @@ export default function BatteryAlertsCard() {
             ))}
           </List>
         </CardContent>
-    </Card>
-      </Scrollbar>
+      </Card>
+    </Scrollbar>
   );
 }
