@@ -95,7 +95,40 @@ export default function OverviewAnalyticsView() {
                 ],
               }}
             />
-            <ChartsCard />
+            <EcommerceYearlySales
+              id="demo__4"
+              title="GHG Savings"
+              subheader="(+43%) than last year"
+              chart={{
+                categories: [
+                  'Jan',
+                  'Feb',
+                  'Mar',
+                  'Apr',
+                  'May',
+                  'Jun',
+                  'Jul',
+                  'Aug',
+                  'Sep',
+                  'Oct',
+                  'Nov',
+                  'Dec',
+                ],
+                colors: [theme.palette.secondary.light],
+                series: [
+                  {
+                    year: '2019',
+                    data: [
+                      {
+                        name: 'GHG savings',
+                        data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 35, 51, 49],
+                      },
+                    ],
+                  },
+                ],
+              }}
+            />
+            {/* <ChartsCard /> */}
           </Stack>
         </Grid>
         <Grid item xs={12} sm={3}>
