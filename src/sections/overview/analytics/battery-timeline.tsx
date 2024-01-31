@@ -44,12 +44,11 @@ const history = {
     {
       title: 'Emergency Drill',
       time: new Date('2023-12-15T02:32:09'),
-    }
+    },
   ],
 };
 
 const reversedHistory = history.timeline.reverse();
-
 
 export default function BatteryTimelineCard() {
   // const theme = useTheme();
