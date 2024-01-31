@@ -3,14 +3,13 @@ import { useState, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
-import ButtonBase from '@mui/material/ButtonBase';
 import CardHeader from '@mui/material/CardHeader';
 import Card, { CardProps } from '@mui/material/Card';
 
-import Iconify from 'src/components/iconify';
+import { fNumber } from 'src/utils/format-number';
+
 import Chart, { useChart } from 'src/components/chart';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
-import { fNumber, fShortenNumber } from 'src/utils/format-number';
 
 // ----------------------------------------------------------------------
 
@@ -46,6 +45,7 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
     },
     xaxis: {
       categories,
+      tooltip: { enabled: false },
     },
     yaxis: {
       labels: {
@@ -53,6 +53,8 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
           return `${fNumber(val)}`;
         },
       },
+      min: title === 'Efficiency' ? 0 : undefined,
+      max: title === 'Efficiency' ? 100 : undefined,
     },
     tooltip: {
       y: {
@@ -75,33 +77,7 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
   return (
     <>
       <Card {...other}>
-        <CardHeader
-          title={title}
-          subheader={subheader}
-          action={
-            title === 'GHG Savings' ? null : (
-              <ButtonBase
-                onClick={popover.onOpen}
-                sx={{
-                  pl: 1,
-                  py: 0.5,
-                  pr: 0.5,
-                  borderRadius: 1,
-                  typography: 'subtitle2',
-                  bgcolor: 'background.neutral',
-                }}
-              >
-                {seriesData}
-
-                <Iconify
-                  width={16}
-                  icon={popover.open ? 'eva:arrow-ios-upward-fill' : 'eva:arrow-ios-downward-fill'}
-                  sx={{ ml: 0.5 }}
-                />
-              </ButtonBase>
-            )
-          }
-        />
+        <CardHeader title={title} subheader={title === 'Efficiency' ? null : subheader} />
 
         {series.map((item) => (
           <Box key={item.year} sx={{ mt: 3, mx: 3 }}>

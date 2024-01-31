@@ -59,26 +59,13 @@ export default function OverviewAnalyticsView() {
                       },
                     ],
                   },
-                  {
-                    year: '2020',
-                    data: [
-                      {
-                        name: 'Battery Efficiency',
-                        data: [93, 95, 97, 95, 96, 94, 95, 94, 96, 93],
-                      },
-                      {
-                        name: 'Invertor Efficiency',
-                        data: [92, 91, 96, 92, 91, 93, 92, 90, 94, 93],
-                      },
-                    ],
-                  },
                 ],
               }}
             />
             <EcommerceYearlySales
               id="demo__4"
               title="GHG Savings"
-              subheader="30 Offices save this much GHG"
+              subheader="1000 offices adopting our ESS foresee a 3M-ton GHG decrease."
               chart={{
                 categories: [
                   'Jan',

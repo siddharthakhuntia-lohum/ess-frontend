@@ -335,6 +335,9 @@ export default function BatteryInfo() {
         <TechnicalSpecificationsCard technicalData={technicalData} />
         <Divider sx={{ borderStyle: 'dashed' }} />
 
+        <BMSSpecificationsCard bmsSpecificationData={bmsSpecificationData} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
+
         <SafetyComplianceCard safetyData={safetyData} />
         <Divider sx={{ borderStyle: 'dashed' }} />
 
@@ -342,9 +345,6 @@ export default function BatteryInfo() {
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         <EnvironmentalEconomicCard environmentalData={environmentalData} />
-        <Divider sx={{ borderStyle: 'dashed' }} />
-
-        <BMSSpecificationsCard bmsSpecificationData={bmsSpecificationData} />
       </Scrollbar>
     </Card>
   );

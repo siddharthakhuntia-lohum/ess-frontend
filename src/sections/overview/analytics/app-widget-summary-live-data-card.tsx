@@ -12,6 +12,8 @@ import { fPercent } from 'src/utils/format-number';
 
 import Chart, { useChart } from 'src/components/chart';
 
+import { SOH_DATA, SOC_DATA, VOLTAGE_DATA, CURRENT_DATA } from './small-graphs-data';
+
 // ----------------------------------------------------------------------
 
 interface Props extends CardProps {
@@ -44,14 +46,10 @@ const CustomTypography = ({ children }: { children: React.ReactNode }) => (
 export default function LiveDataCustomCard({ title, percent, total, chart, sx, ...other }: Props) {
   const theme = useTheme();
 
-  const {
-    // colors = [theme.palette.primary.light, theme.palette.primary.main],
-    series,
-    options,
-  } = chart;
+  const { options } = chart;
 
   const soc = 82;
-  const soh = 97;
+  const soh = 98.5;
   const voltage = 135;
   const current = 8;
   const highTemp = 14;
@@ -82,19 +80,10 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     },
     tooltip: {
       marker: {
-        show: true,
+        show: false,
       },
       y: {
-        formatter: (value) =>
-          //   if (tooltipFormat === 'dollar') {
-          //     return `$${value}`;
-          //   }
-          //   if (tooltipFormat === 'none') {
-          //     return value;
-          //   }
-
-          // Default to percentage if not 'dollar'
-          fPercent(value),
+        formatter: (value) => fPercent(value),
         title: {
           formatter: () => '',
         },
@@ -128,19 +117,10 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     },
     tooltip: {
       marker: {
-        show: true,
+        show: false,
       },
       y: {
-        formatter: (value) =>
-          //   if (tooltipFormat === 'dollar') {
-          //     return `$${value}`;
-          //   }
-          //   if (tooltipFormat === 'none') {
-          //     return value;
-          //   }
-
-          // Default to percentage if not 'dollar'
-          fPercent(value),
+        formatter: (value) => `${value} A`,
         title: {
           formatter: () => '',
         },
@@ -174,19 +154,10 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     },
     tooltip: {
       marker: {
-        show: true,
+        show: false,
       },
       y: {
-        formatter: (value) =>
-          //   if (tooltipFormat === 'dollar') {
-          //     return `$${value}`;
-          //   }
-          //   if (tooltipFormat === 'none') {
-          //     return value;
-          //   }
-
-          // Default to percentage if not 'dollar'
-          fPercent(value),
+        formatter: (value) => `${value} V`,
         title: {
           formatter: () => '',
         },
@@ -196,7 +167,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
   });
 
   const lineChartOptions4 = useChart({
-    colors: [(theme.palette.secondary as PaletteColor).light],
+    colors: [(theme.palette.primary as PaletteColor).light],
     chart: {
       sparkline: {
         enabled: true,
@@ -220,19 +191,10 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     },
     tooltip: {
       marker: {
-        show: true,
+        show: false,
       },
       y: {
-        formatter: (value) =>
-          //   if (tooltipFormat === 'dollar') {
-          //     return `$${value}`;
-          //   }
-          //   if (tooltipFormat === 'none') {
-          //     return value;
-          //   }
-
-          // Default to percentage if not 'dollar'
-          fPercent(value),
+        formatter: (value) => fPercent(value),
         title: {
           formatter: () => '',
         },
@@ -241,68 +203,22 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     ...options,
   });
 
-  //   const chartOptions = {
-  //     colors: colors.map((colr) => colr[1]),
-  //     fill: {
-  //       type: 'gradient',
-  //       gradient: {
-  //         colorStops: [
-  //           { offset: 0, color: colors[0], opacity: 1 },
-  //           { offset: 100, color: colors[1], opacity: 1 },
-  //         ],
-  //       },
-  //     },
-  //     chart: {
-  //       sparkline: {
-  //         enabled: true,
-  //       },
-  //     },
-  //     plotOptions: {
-  //       bar: {
-  //         columnWidth: '68%',
-  //         borderRadius: 2,
-  //       },
-  //     },
-  //     tooltip: {
-  //       x: { show: false },
-  //       y: {
-  //         formatter: (value: number) => fNumber(value),
-  //         title: {
-  //           formatter: () => '',
-  //         },
-  //       },
-  //       marker: { show: false },
-  //     },
-  //     ...options,
-  //   };
-
   return (
     <Card {...other} sx={{ background: theme.palette.primary.darker }}>
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="subtitle2">SoH</Typography>
-          <Typography variant="h6">98.5%</Typography>
+          <Typography variant="h6">{soh} %</Typography>
         </Box>
 
         <Chart
           dir="ltr"
           type="line"
-          series={[
-            { data: [99.87, 99.75, 99.62, 99.5, 99.37, 99.25, 99.12, 99.0, 98.87, 98.75, 98.62] },
-          ]}
+          series={[{ data: SOH_DATA }]}
           options={lineChartOptions4}
           width={90}
           height={60}
         />
-        {/* 
-        <Chart
-          dir="ltr"
-          type="bar"
-          series={[{ data: [99, 99, 99, 99, 99, 99, 99, 99, 98] }]}
-          options={lineChartOptions2}
-          width={90}
-          height={60}
-        /> */}
       </Box>
       <Divider sx={{ borderStyle: 'dashed' }} />
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
@@ -313,29 +229,14 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
 
         <Chart
           dir="ltr"
-          type="bar"
-          series={[{ data: series }]}
+          type="line"
+          series={[{ data: SOC_DATA }]}
           options={lineChartOptions1}
           width={90}
           height={60}
         />
       </Box>
       <Divider sx={{ borderStyle: 'dashed' }} />
-      <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
-        <Box sx={{ flexGrow: 1 }}>
-          <Typography variant="subtitle2">SoH</Typography>
-          <Typography variant="h6">93%</Typography>
-        </Box>
-
-        <Chart
-          dir="ltr"
-          type="bar"
-          series={[{ data: series }]}
-          options={lineChartOptions2}
-          width={90}
-          height={60}
-        />
-      </Box>
       <Divider sx={{ borderStyle: 'dashed' }} />
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
@@ -345,8 +246,8 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
 
         <Chart
           dir="ltr"
-          type="bar"
-          series={[{ data: series }]}
+          type="line"
+          series={[{ data: VOLTAGE_DATA }]}
           options={lineChartOptions3}
           width={90}
           height={60}
@@ -362,8 +263,8 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         <Chart
           dir="ltr"
           type="line"
-          series={[{ data: series }]}
-          options={lineChartOptions4}
+          series={[{ data: CURRENT_DATA }]}
+          options={lineChartOptions2}
           width={90}
           height={60}
         />
