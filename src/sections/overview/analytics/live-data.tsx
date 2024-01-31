@@ -1,29 +1,27 @@
-import Card from '@mui/material/Card';
-import { Stack, Divider, CardHeader, Typography, CardContent } from '@mui/material';
-
-import Iconify from 'src/components/iconify';
-import LiveDataCustomCard from './app-widget-summary-live-data-card';
 import { useTheme } from '@mui/material/styles';
+// import { Stack, Typography } from '@mui/material';
+
+import LiveDataCustomCard from './app-widget-summary-live-data-card';
 // import AnalyticsWidgetSummary from './analytics-widget-summary';
 
 // ------------------------------------------------------
 
-const CustomStack = ({ children }: { children: React.ReactNode }) => (
-  <Stack
-    direction="row"
-    spacing={2}
-    display="flex"
-    justifyContent="space-around"
-    alignItems="center"
-    sx={{ width: '100%', minHeight: '50px' }}
-  >
-    {children}
-  </Stack>
-);
+// const CustomStack = ({ children }: { children: React.ReactNode }) => (
+//   <Stack
+//     direction="row"
+//     spacing={2}
+//     display="flex"
+//     justifyContent="space-around"
+//     alignItems="center"
+//     sx={{ width: '100%', minHeight: '50px' }}
+//   >
+//     {children}
+//   </Stack>
+// );
 
-const CustomTypography = ({ children }: { children: React.ReactNode }) => (
-  <Typography sx={{ width: '50%', textAlign: 'center' }}>{children}</Typography>
-);
+// const CustomTypography = ({ children }: { children: React.ReactNode }) => (
+//   <Typography sx={{ width: '50%', textAlign: 'center' }}>{children}</Typography>
+// );
 
 // export default function LiveDataCard() {
 //   return (

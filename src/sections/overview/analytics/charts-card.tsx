@@ -2,11 +2,6 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
 import {
-  EnergyIOCard,
-  GHGSavingsCard,
-  TemperatureTrends,
-  CostPerEnergyCard,
-  LoadDemandSupplyCard,
   BatteryEfficiencyCard,
 } from './chart-cards';
 // ----------------------------------------------------------------------

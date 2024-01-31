@@ -2,17 +2,15 @@ import { ApexOptions } from 'apexcharts';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
+import { PaletteColor } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import Card, { CardProps } from '@mui/material/Card';
 
-import { fNumber, fPercent } from 'src/utils/format-number';
+import { fPercent } from 'src/utils/format-number';
 
 import Chart, { useChart } from 'src/components/chart';
-import Iconify from 'src/components/iconify';
-import { CardContent, CardHeader, PaletteColor } from '@mui/material';
-import { color } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -47,13 +45,13 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
   const theme = useTheme();
 
   const {
-    colors = [theme.palette.primary.light, theme.palette.primary.main],
+    // colors = [theme.palette.primary.light, theme.palette.primary.main],
     series,
     options,
   } = chart;
 
   const lineChartOptions1 = useChart({
-    colors: [(theme.palette['primary'] as PaletteColor).lighter],
+    colors: [(theme.palette.primary as PaletteColor).lighter],
     chart: {
       sparkline: {
         enabled: true,
@@ -80,7 +78,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => {
+        formatter: (value) => 
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -89,8 +87,8 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-          return fPercent(value);
-        },
+           fPercent(value)
+        ,
         title: {
           formatter: () => '',
         },
@@ -100,7 +98,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
   });
 
   const lineChartOptions2 = useChart({
-    colors: [(theme.palette['error'] as PaletteColor).light],
+    colors: [(theme.palette.error as PaletteColor).light],
     chart: {
       sparkline: {
         enabled: true,
@@ -127,7 +125,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => {
+        formatter: (value) => 
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -136,8 +134,8 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-          return fPercent(value);
-        },
+           fPercent(value)
+        ,
         title: {
           formatter: () => '',
         },
@@ -147,7 +145,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
   });
 
   const lineChartOptions3 = useChart({
-    colors: [(theme.palette['warning'] as PaletteColor).light],
+    colors: [(theme.palette.warning as PaletteColor).light],
     chart: {
       sparkline: {
         enabled: true,
@@ -174,7 +172,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => {
+        formatter: (value) => 
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -183,8 +181,8 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-          return fPercent(value);
-        },
+           fPercent(value)
+        ,
         title: {
           formatter: () => '',
         },
@@ -194,7 +192,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
   });
 
   const lineChartOptions4 = useChart({
-    colors: [(theme.palette['secondary'] as PaletteColor).light],
+    colors: [(theme.palette.secondary as PaletteColor).light],
     chart: {
       sparkline: {
         enabled: true,
@@ -221,7 +219,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => {
+        formatter: (value) => 
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -230,8 +228,8 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-          return fPercent(value);
-        },
+           fPercent(value)
+        ,
         title: {
           formatter: () => '',
         },

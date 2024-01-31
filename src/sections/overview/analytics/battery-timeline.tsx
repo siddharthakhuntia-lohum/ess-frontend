@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Timeline from '@mui/lab/Timeline';
-import { CardContent, CardHeader, useTheme } from '@mui/material';
 import TimelineDot from '@mui/lab/TimelineDot';
 import Typography from '@mui/material/Typography';
 import TimelineContent from '@mui/lab/TimelineContent';
+import { CardHeader, CardContent } from '@mui/material';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem';
@@ -81,10 +81,10 @@ const history = {
 };
 
 export default function BatteryTimelineCard() {
-  const theme = useTheme();
+  // const theme = useTheme();
   return (
     <Card>
-      <CardHeader title="Timeline"></CardHeader>
+      <CardHeader title="Timeline" />
       <CardContent sx={{ padding: 0 }}>
         <Scrollbar sx={{ height: 400 }}>
           <Timeline
