@@ -55,118 +55,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
   const highTemp = 14;
   const lowTemp = 12;
 
-  const lineChartOptions1 = useChart({
-    colors: [(theme.palette.primary as PaletteColor).lighter],
-    chart: {
-      sparkline: {
-        enabled: true,
-      },
-    },
-    xaxis: {
-      labels: {
-        show: false,
-      },
-    },
-    yaxis: {
-      labels: {
-        show: false,
-      },
-    },
-    legend: {
-      show: false,
-    },
-    grid: {
-      show: false,
-    },
-    tooltip: {
-      marker: {
-        show: false,
-      },
-      y: {
-        formatter: (value) => fPercent(value),
-        title: {
-          formatter: () => '',
-        },
-      },
-    },
-    ...options,
-  });
-
-  const lineChartOptions2 = useChart({
-    colors: [(theme.palette.error as PaletteColor).light],
-    chart: {
-      sparkline: {
-        enabled: true,
-      },
-    },
-    xaxis: {
-      labels: {
-        show: false,
-      },
-    },
-    yaxis: {
-      labels: {
-        show: false,
-      },
-    },
-    legend: {
-      show: false,
-    },
-    grid: {
-      show: false,
-    },
-    tooltip: {
-      marker: {
-        show: false,
-      },
-      y: {
-        formatter: (value) => `${value} A`,
-        title: {
-          formatter: () => '',
-        },
-      },
-    },
-    ...options,
-  });
-
-  const lineChartOptions3 = useChart({
-    colors: [(theme.palette.warning as PaletteColor).light],
-    chart: {
-      sparkline: {
-        enabled: true,
-      },
-    },
-    xaxis: {
-      labels: {
-        show: false,
-      },
-    },
-    yaxis: {
-      labels: {
-        show: false,
-      },
-    },
-    legend: {
-      show: false,
-    },
-    grid: {
-      show: false,
-    },
-    tooltip: {
-      marker: {
-        show: false,
-      },
-      y: {
-        formatter: (value) => `${value} V`,
-        title: {
-          formatter: () => '',
-        },
-      },
-    },
-    ...options,
-  });
-
-  const lineChartOptions4 = useChart({
+  const SOH_CHART_OPTIONS = useChart({
     colors: [(theme.palette.primary as PaletteColor).light],
     chart: {
       sparkline: {
@@ -203,6 +92,117 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     ...options,
   });
 
+  const SOC_CHART_OPTIONS = useChart({
+    colors: [(theme.palette.primary as PaletteColor).lighter],
+    chart: {
+      sparkline: {
+        enabled: true,
+      },
+    },
+    xaxis: {
+      labels: {
+        show: false,
+      },
+    },
+    yaxis: {
+      labels: {
+        show: false,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    grid: {
+      show: false,
+    },
+    tooltip: {
+      marker: {
+        show: false,
+      },
+      y: {
+        formatter: (value) => fPercent(value),
+        title: {
+          formatter: () => '',
+        },
+      },
+    },
+    ...options,
+  });
+
+  const VOLTAGE_CHART_OPTIONS = useChart({
+    colors: [(theme.palette.warning as PaletteColor).light],
+    chart: {
+      sparkline: {
+        enabled: true,
+      },
+    },
+    xaxis: {
+      labels: {
+        show: false,
+      },
+    },
+    yaxis: {
+      labels: {
+        show: false,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    grid: {
+      show: false,
+    },
+    tooltip: {
+      marker: {
+        show: false,
+      },
+      y: {
+        formatter: (value) => `${value} V`,
+        title: {
+          formatter: () => '',
+        },
+      },
+    },
+    ...options,
+  });
+
+  const CURRENT_CHART_OPTIONS = useChart({
+    colors: [(theme.palette.error as PaletteColor).light],
+    chart: {
+      sparkline: {
+        enabled: true,
+      },
+    },
+    xaxis: {
+      labels: {
+        show: false,
+      },
+    },
+    yaxis: {
+      labels: {
+        show: false,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    grid: {
+      show: false,
+    },
+    tooltip: {
+      marker: {
+        show: false,
+      },
+      y: {
+        formatter: (value) => `${value} A`,
+        title: {
+          formatter: () => '',
+        },
+      },
+    },
+    ...options,
+  });
+
   return (
     <Card {...other} sx={{ background: theme.palette.primary.darker }}>
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
@@ -215,7 +215,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           dir="ltr"
           type="line"
           series={[{ data: SOH_DATA }]}
-          options={lineChartOptions4}
+          options={SOH_CHART_OPTIONS}
           width={90}
           height={60}
         />
@@ -231,7 +231,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           dir="ltr"
           type="line"
           series={[{ data: SOC_DATA }]}
-          options={lineChartOptions1}
+          options={SOC_CHART_OPTIONS}
           width={90}
           height={60}
         />
@@ -248,7 +248,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           dir="ltr"
           type="line"
           series={[{ data: VOLTAGE_DATA }]}
-          options={lineChartOptions3}
+          options={VOLTAGE_CHART_OPTIONS}
           width={90}
           height={60}
         />
@@ -264,7 +264,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           dir="ltr"
           type="line"
           series={[{ data: CURRENT_DATA }]}
-          options={lineChartOptions2}
+          options={CURRENT_CHART_OPTIONS}
           width={90}
           height={60}
         />
