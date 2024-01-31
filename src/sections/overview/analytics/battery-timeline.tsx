@@ -19,66 +19,37 @@ const history = {
   timeline: [
     {
       title: 'System Startup',
-      time: new Date('2024-02-01T08:00:00'),
+      time: new Date('2023-02-06T18:21:00'),
     },
     {
       title: 'Performance Monitoring - Initial Week',
-      time: new Date('2024-02-01T00:00:00'),
+      time: new Date('2023-03-19T15:24:00'),
     },
     {
       title: 'First Maintenance Check',
-      time: new Date('2024-02-08T00:00:00'),
+      time: new Date('2023-03-30T05:03:00'),
     },
     {
       title: 'Data Analysis Report',
-      time: new Date('2024-02-15T00:00:00'),
+      time: new Date('2023-05-12T22:25:00'),
     },
     {
       title: 'Software Update',
-      time: new Date('2024-03-01T00:00:00'),
+      time: new Date('2023-06-03T13:26:00'),
     },
     {
       title: 'Battery Health Check',
-      time: new Date('2024-03-15T00:00:00'),
-    },
-    {
-      title: 'Regulatory Compliance Review',
-      time: new Date('2024-04-01T00:00:00'),
-    },
-    {
-      title: 'Expansion Planning Meeting',
-      time: new Date('2024-06-01T00:00:00'),
-    },
-    {
-      title: 'Semi-Annual Performance Review',
-      time: new Date('2024-06-30T00:00:00'),
-    },
-    {
-      title: 'Financial Reporting',
-      time: new Date('2024-07-01T00:00:00'),
+      time: new Date('2023-10-19T05:42:00'),
     },
     {
       title: 'Emergency Drill',
-      time: new Date('2024-08-01T00:00:00'),
-    },
-    {
-      title: 'Customer Feedback Survey',
-      time: new Date('2024-09-01T00:00:00'),
-    },
-    {
-      title: 'Market Analysis Update',
-      time: new Date('2024-10-01T00:00:00'),
-    },
-    {
-      title: 'Year-End Review',
-      time: new Date('2024-12-01T00:00:00'),
-    },
-    {
-      title: 'Goal Setting for 2025',
-      time: new Date('2025-01-01T00:00:00'),
-    },
+      time: new Date('2023-12-15T02:32:09'),
+    }
   ],
 };
+
+const reversedHistory = history.timeline.reverse();
+
 
 export default function BatteryTimelineCard() {
   // const theme = useTheme();
@@ -97,7 +68,7 @@ export default function BatteryTimelineCard() {
               },
             }}
           >
-            {history.timeline.map((item, index) => {
+            {reversedHistory.map((item, index) => {
               const lastTimeline = index === history.timeline.length - 1;
 
               return (

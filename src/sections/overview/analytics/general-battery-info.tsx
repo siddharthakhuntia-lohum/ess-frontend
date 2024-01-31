@@ -24,7 +24,7 @@ const PerformanceSpecificationsCard = ({ performanceData }: PerformanceProps) =>
       title="Performance Specifications"
       action={
         <IconButton>
-          <Iconify icon="solar:pen-bold" />
+          <Iconify icon="eos-icons:performance" />
         </IconButton>
       }
     />
