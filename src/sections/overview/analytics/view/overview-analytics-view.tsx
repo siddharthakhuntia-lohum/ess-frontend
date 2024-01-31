@@ -40,7 +40,7 @@ export default function OverviewAnalyticsView() {
 
   return (
     <Container maxWidth={false}>
-      <Grid container spacing={3} alignItems="stretch">
+      <Grid container spacing={3} alignItems="stretch" sx={{ marginTop: 2 }}>
         <Grid item xs={12} sm={4}>
           <BatteryInfo />
         </Grid>

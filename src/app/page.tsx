@@ -1,4 +1,5 @@
 import { HomeView } from 'src/sections/home/view';
+import { OverviewAnalyticsView } from 'src/sections/overview/analytics/view';
 
 // ----------------------------------------------------------------------
 
@@ -7,5 +8,6 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  return <HomeView />;
+  return <OverviewAnalyticsView />;
+  // return <HomeView />;
 }

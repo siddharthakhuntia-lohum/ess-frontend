@@ -58,7 +58,7 @@ export default function RootLayout({ children }: Props) {
           <LocalizationProvider>
             <SettingsProvider
               defaultSettings={{
-                themeMode: 'light', // 'light' | 'dark'
+                themeMode: 'dark', // 'light' | 'dark'
                 themeDirection: 'ltr', //  'rtl' | 'ltr'
                 themeContrast: 'default', // 'default' | 'bold'
                 themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
@@ -70,9 +70,9 @@ export default function RootLayout({ children }: Props) {
                 <MotionLazy>
                   <SnackbarProvider>
                     {/* <CheckoutProvider> */}
-                      <SettingsDrawer />
-                      <ProgressBar />
-                      {children}
+                    <SettingsDrawer />
+                    <ProgressBar />
+                    {children}
                     {/* </CheckoutProvider> */}
                   </SnackbarProvider>
                 </MotionLazy>
