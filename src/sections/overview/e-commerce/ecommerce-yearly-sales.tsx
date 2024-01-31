@@ -10,6 +10,7 @@ import Card, { CardProps } from '@mui/material/Card';
 import Iconify from 'src/components/iconify';
 import Chart, { useChart } from 'src/components/chart';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
+import { fNumber, fShortenNumber } from 'src/utils/format-number';
 
 // ----------------------------------------------------------------------
 
@@ -46,6 +47,20 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
     xaxis: {
       categories,
     },
+    yaxis: {
+      labels: {
+        formatter(val: number) {
+          return `${fNumber(val)}`;
+        },
+      },
+    },
+    tooltip: {
+      y: {
+        formatter(val: number) {
+          return `${fNumber(val)}`;
+        },
+      },
+    },
     ...options,
   });
 
@@ -64,25 +79,27 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
           title={title}
           subheader={subheader}
           action={
-            <ButtonBase
-              onClick={popover.onOpen}
-              sx={{
-                pl: 1,
-                py: 0.5,
-                pr: 0.5,
-                borderRadius: 1,
-                typography: 'subtitle2',
-                bgcolor: 'background.neutral',
-              }}
-            >
-              {seriesData}
+            title === 'GHG Savings' ? null : (
+              <ButtonBase
+                onClick={popover.onOpen}
+                sx={{
+                  pl: 1,
+                  py: 0.5,
+                  pr: 0.5,
+                  borderRadius: 1,
+                  typography: 'subtitle2',
+                  bgcolor: 'background.neutral',
+                }}
+              >
+                {seriesData}
 
-              <Iconify
-                width={16}
-                icon={popover.open ? 'eva:arrow-ios-upward-fill' : 'eva:arrow-ios-downward-fill'}
-                sx={{ ml: 0.5 }}
-              />
-            </ButtonBase>
+                <Iconify
+                  width={16}
+                  icon={popover.open ? 'eva:arrow-ios-upward-fill' : 'eva:arrow-ios-downward-fill'}
+                  sx={{ ml: 0.5 }}
+                />
+              </ButtonBase>
+            )
           }
         />
 

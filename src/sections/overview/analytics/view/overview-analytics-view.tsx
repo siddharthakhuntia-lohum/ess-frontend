@@ -29,7 +29,7 @@ export default function OverviewAnalyticsView() {
             <EcommerceYearlySales
               id="demo__4"
               title="Efficiency"
-              subheader="(+43%) than last year"
+              subheader="(+12%) than last year"
               chart={{
                 categories: [
                   'Jan',
@@ -78,7 +78,7 @@ export default function OverviewAnalyticsView() {
             <EcommerceYearlySales
               id="demo__4"
               title="GHG Savings"
-              subheader="(+43%) than last year"
+              subheader="30 Offices save this much GHG"
               chart={{
                 categories: [
                   'Jan',
@@ -93,6 +93,7 @@ export default function OverviewAnalyticsView() {
                   'Oct',
                   'Nov',
                   'Dec',
+                  'Jan',
                 ],
                 colors: [theme.palette.secondary.light],
                 series: [
@@ -101,7 +102,12 @@ export default function OverviewAnalyticsView() {
                     data: [
                       {
                         name: 'GHG savings',
-                        data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 35, 51, 49],
+                        data: [
+                          279000.0, 561746.1339178928, 887246.1339178928, 1190188.4202584922,
+                          1469188.4202584922, 1694188.4202584922, 1880188.4202584922,
+                          2032148.0577065395, 2167148.0577065395, 2319107.695154587,
+                          2499107.695154587, 2731607.695154587, 3010608.263274587,
+                        ],
                       },
                     ],
                   },
