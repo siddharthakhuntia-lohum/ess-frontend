@@ -30,6 +30,8 @@ interface Props extends CardProps {
   };
 }
 
+const ghgFormat = (val: number) => `${fNumber(val/Number(1000))}`;
+
 export default function EcommerceYearlySales({ title, subheader, chart, ...other }: Props) {
   const { colors, categories, series, options } = chart;
 
@@ -50,7 +52,7 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
     yaxis: {
       labels: {
         formatter(val: number) {
-          return `${fNumber(val)}`;
+          return ghgFormat(val);
         },
       },
       min: title === 'Efficiency' ? 0 : undefined,
@@ -59,7 +61,7 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
     tooltip: {
       y: {
         formatter(val: number) {
-          return `${fNumber(val)}`;
+          return `${ghgFormat(val)} Tons`;
         },
       },
     },
