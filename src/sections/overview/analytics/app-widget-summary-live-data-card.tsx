@@ -280,6 +280,33 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     <Card {...other} sx={{ background: theme.palette.primary.darker }}>
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
+          <Typography variant="subtitle2">SoH</Typography>
+          <Typography variant="h6">98.5%</Typography>
+        </Box>
+
+        <Chart
+          dir="ltr"
+          type="line"
+          series={[
+            { data: [99.87, 99.75, 99.62, 99.5, 99.37, 99.25, 99.12, 99.0, 98.87, 98.75, 98.62] },
+          ]}
+          options={lineChartOptions4}
+          width={90}
+          height={60}
+        />
+        {/* 
+        <Chart
+          dir="ltr"
+          type="bar"
+          series={[{ data: [99, 99, 99, 99, 99, 99, 99, 99, 98] }]}
+          options={lineChartOptions2}
+          width={90}
+          height={60}
+        /> */}
+      </Box>
+      <Divider sx={{ borderStyle: 'dashed' }} />
+      <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
+        <Box sx={{ flexGrow: 1 }}>
           <Typography variant="subtitle2">SoC</Typography>
           <Typography variant="h6">{soc} %</Typography>
         </Box>
@@ -297,7 +324,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="subtitle2">SoH</Typography>
-          <Typography variant="h6">{soh} %</Typography>
+          <Typography variant="h6">93%</Typography>
         </Box>
 
         <Chart
