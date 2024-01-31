@@ -19,7 +19,7 @@ export default function ChartsCard() {
       <Grid item xs={6}>
         <Stack direction="column" spacing={2}>
           <BatteryEfficiencyCard
-            title="Battery Efficiency (%)"
+            title="GHG savings (%)"
             icon="eva:diagonal-arrow-right-up-fill"
             percent={-7}
             color="primary"
@@ -29,7 +29,7 @@ export default function ChartsCard() {
               options: {},
             }}
           />
-          <TemperatureTrends
+          {/* <TemperatureTrends
             title="Temperature trends (in °C)"
             icon="eva:diagonal-arrow-right-up-fill"
             percent={-9}
@@ -54,12 +54,23 @@ export default function ChartsCard() {
               series: randomData,
               options: {},
             }}
-          />
+          /> */}
         </Stack>
       </Grid>
       <Grid item xs={6}>
         <Stack spacing={2} direction="column">
-          <GHGSavingsCard
+          {/* <BatteryEfficiencyCard
+            title="Invertor Efficiency (%)"
+            icon="eva:diagonal-arrow-right-up-fill"
+            percent={-7}
+            color="warning"
+            total={50}
+            chart={{
+              series: randomData,
+              options: {},
+            }}
+          /> */}
+          {/* <GHGSavingsCard
             title="GHG Savings (in $)"
             icon="eva:diagonal-arrow-right-up-fill"
             percent={+5}
@@ -71,8 +82,8 @@ export default function ChartsCard() {
               series: randomData,
               options: {},
             }}
-          />
-          <LoadDemandSupplyCard
+          /> */}
+          {/* <LoadDemandSupplyCard
             title="Load Demand Supply (%)"
             icon="eva:diagonal-arrow-right-up-fill"
             percent={-26}
@@ -95,7 +106,7 @@ export default function ChartsCard() {
               series: randomData,
               options: {},
             }}
-          />
+          /> */}
         </Stack>
       </Grid>
     </Grid>
