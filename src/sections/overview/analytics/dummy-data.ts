@@ -73,3 +73,25 @@ export const CURRENT_DATA = CURRENT_VALUES.map((value, index) => ({
   x: seriesXData[index],
   y: value,
 }));
+
+export const GHG_SUBTITLES = [
+  'Our ESS in 1000 offices aims for a significant 3M-ton GHG reduction.',
+
+  'Deploying our ESS in 1000 offices targets a 3M-ton GHG cut.',
+
+  '1000 offices adopting our ESS foresee a 3M-ton GHG decrease.',
+
+  'ESS in 1000 offices strives for a 3M-ton GHG reduction.',
+
+  'Our ESS: 1000 offices, 3M-ton GHG saved.',
+
+  '1000 offices, 3M tons less GHG with our ESS.',
+
+  'ESS in 1000 offices: A 3M-ton GHG reduction.',
+
+  'Our ESS: Transforming 1000 offices, cutting 3M tons GHG.',
+
+  'In 1000 offices, our ESS slashes GHG by 3M tons.',
+
+  'Deploy ESS, cut GHG: 1000 offices, 3M tons saved.',
+];

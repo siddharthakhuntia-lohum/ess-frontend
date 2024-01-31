@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';
 
 import LiveDataCard from '../live-data';
+import { GHG_SUBTITLES } from '../dummy-data';
 import BatteryInfo from '../general-battery-info';
 import BatteryTimelineCard from '../battery-timeline';
 import EcommerceYearlySales from '../../e-commerce/ecommerce-yearly-sales';
@@ -65,7 +66,7 @@ export default function OverviewAnalyticsView() {
             <EcommerceYearlySales
               id="demo__4"
               title="GHG Savings"
-              subheader="1000 offices adopting our ESS foresee a 3M-ton GHG decrease."
+              subheader={GHG_SUBTITLES[2]}
               chart={{
                 categories: [
                   'Jan',

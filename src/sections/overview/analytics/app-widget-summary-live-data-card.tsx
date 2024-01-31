@@ -12,7 +12,7 @@ import { fPercent } from 'src/utils/format-number';
 
 import Chart, { useChart } from 'src/components/chart';
 
-import { SOH_DATA, SOC_DATA, VOLTAGE_DATA, CURRENT_DATA } from './small-graphs-data';
+import { SOH_DATA, SOC_DATA, VOLTAGE_DATA, CURRENT_DATA } from './dummy-data';
 
 // ----------------------------------------------------------------------
 
