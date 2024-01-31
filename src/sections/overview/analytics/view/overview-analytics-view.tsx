@@ -2,22 +2,17 @@
 
 import { useState, useCallback } from 'react';
 
-import Tab from '@mui/material/Tab';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-import Tabs, { tabsClasses } from '@mui/material/Tabs';
+import { useTheme } from '@mui/material/styles';
 
 import Iconify from 'src/components/iconify/iconify';
 
 import ChartsCard from '../charts-card';
 import LiveDataCard from '../live-data';
-import BatteryAlertsCard from '../battery-alerts';
 import BatteryInfo from '../general-battery-info';
 import BatteryTimelineCard from '../battery-timeline';
-import AppWidgetSummary from '../../app/app-widget-summary';
-import AppWidgetSummaryCustom from './app-widget-summary-custom-card';
-import { useTheme } from '@mui/material/styles';
 import EcommerceYearlySales from '../../e-commerce/ecommerce-yearly-sales';
 
 // ----------------------------------------------------------------------
