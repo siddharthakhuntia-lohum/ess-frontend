@@ -4,7 +4,7 @@ import { CardContent } from '@mui/material';
 
 import Scrollbar from 'src/components/scrollbar';
 
-import AlertItem from './old_files/alert-item';
+import AlertItem from './alert-item';
 
 // ------------------------------------------------------
 
