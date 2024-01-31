@@ -6,7 +6,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 
 import { fToNow } from 'src/utils/format-time';
 
-
 // ----------------------------------------------------------------------
 
 type NotificationItemProps = {
@@ -30,14 +29,14 @@ export default function AlertItem({ notification }: NotificationItemProps) {
           sx={{ typography: 'caption', color: 'text.disabled' }}
           divider={
             <Box
-                sx={{
-                  width: 2,
-                  height: 2,
-                  bgcolor: 'currentColor',
-                  mx: 0.5,
-                  borderRadius: '50%',
-                }}
-              />
+              sx={{
+                width: 2,
+                height: 2,
+                bgcolor: 'currentColor',
+                mx: 0.5,
+                borderRadius: '50%',
+              }}
+            />
           }
         >
           {fToNow(notification.createdAt)}
@@ -66,7 +65,6 @@ export default function AlertItem({ notification }: NotificationItemProps) {
       </Stack>
     </ListItemAvatar>
   );
-
 
   return (
     <ListItemButton

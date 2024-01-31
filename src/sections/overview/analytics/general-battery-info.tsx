@@ -1,6 +1,7 @@
 import Card from '@mui/material/Card';
 import { Box, Stack, Divider, CardHeader, IconButton } from '@mui/material';
 
+import Scrollbar from 'src/components/scrollbar';
 import Iconify from 'src/components/iconify/iconify';
 
 // -------------------TYPES----------------------------------
@@ -115,6 +116,7 @@ const TechnicalSpecificationsCard = ({ technicalData }: TechnicalProps) => (
 type SafetyData = {
   features: string;
   compliance: string;
+  protections: string;
 };
 
 type SafetyProps = {
@@ -143,6 +145,12 @@ const SafetyComplianceCard = ({ safetyData }: SafetyProps) => (
           Compliance
         </Box>
         {safetyData.compliance}
+      </Stack>
+      <Stack direction="row" alignItems="center">
+        <Box component="span" sx={{ color: 'text.secondary', width: 200, flexShrink: 0 }}>
+          Protections
+        </Box>
+        {safetyData.protections}
       </Stack>
     </Stack>
   </>
@@ -220,25 +228,84 @@ const EnvironmentalEconomicCard = ({ environmentalData }: EnvironmentalProps) =>
   </>
 );
 
+type BMSSpecificationsData = {
+  externalCommunications: string;
+  switching: string;
+  cellChemistry: string;
+  numberOfCellsPerSalve: string;
+  voltagePerSlaveBattery: string;
+};
+
+type BMSSpecificationProps = {
+  bmsSpecificationData: BMSSpecificationsData;
+};
+
+const BMSSpecificationsCard = ({ bmsSpecificationData }: BMSSpecificationProps) => (
+  <>
+    <CardHeader
+      title="BMS Specifications"
+      action={
+        <IconButton>
+          <Iconify icon="mdi:information-slab-circle-outline" />
+        </IconButton>
+      }
+    />
+    <Stack spacing={1.5} sx={{ p: 3, typography: 'body2' }}>
+      <Stack direction="row" alignItems="center">
+        <Box component="span" sx={{ color: 'text.secondary', width: 200, flexShrink: 0 }}>
+          External Communications
+        </Box>
+        {bmsSpecificationData.externalCommunications}
+      </Stack>
+      <Stack direction="row" alignItems="center">
+        <Box component="span" sx={{ color: 'text.secondary', width: 200, flexShrink: 0 }}>
+          Switching
+        </Box>
+        {bmsSpecificationData.switching}
+      </Stack>
+      <Stack direction="row" alignItems="center">
+        <Box component="span" sx={{ color: 'text.secondary', width: 200, flexShrink: 0 }}>
+          Cell Chemistry
+        </Box>
+        {bmsSpecificationData.cellChemistry}
+      </Stack>
+      <Stack direction="row" alignItems="center">
+        <Box component="span" sx={{ color: 'text.secondary', width: 200, flexShrink: 0 }}>
+          Number of Cells per Slave
+        </Box>
+        {bmsSpecificationData.numberOfCellsPerSalve}
+      </Stack>
+      <Stack direction="row" alignItems="center">
+        <Box component="span" sx={{ color: 'text.secondary', width: 200, flexShrink: 0 }}>
+          Voltage Per Slave Battery
+        </Box>
+        {bmsSpecificationData.voltagePerSlaveBattery}
+      </Stack>
+    </Stack>
+  </>
+);
+
 export default function BatteryInfo() {
   const performanceData = {
-    capacity: '500 kWh',
-    powerRating: '250 kW',
-    energyDensity: '200 Wh/kg',
-    efficiency: '90%',
-    responseTime: '1 ms',
+    capacity: '15 kWh',
+    powerRating: '15 kW',
+    energyDensity: '176 Wh/kg',
+    efficiency: '98%',
+    responseTime: '1 sec',
   };
 
   const technicalData = {
     batteryType: 'Lithium-ion',
-    cycleLife: '5000 cycles',
-    temperatureRange: '-20°C to 60°C',
+    cycleLife: '2500 cycles',
+    temperatureRange: '-20°C to 40°C',
     scalability: 'Up to 10 MW',
   };
 
   const safetyData = {
     features: 'Thermal management, Overcharge protection',
     compliance: 'UL Certified, IEC Standards',
+    protections:
+      'Hardware based short circuit protection. COVP, CUVP, POVP, PUVP, OCC, OCD, SCD, OTC, OTD, UTC, UTD, High Imbalance',
   };
 
   const monitoringData = {
@@ -251,21 +318,34 @@ export default function BatteryInfo() {
     cost: '$0.05 per kWh',
   };
 
+  const bmsSpecificationData = {
+    externalCommunications: 'CAN 2.0B (configurable)',
+    switching: 'Redundant, 3-contactor based',
+    cellChemistry: 'Agnostic',
+    numberOfCellsPerSalve: '10 upto 30',
+    voltagePerSlaveBattery: '32V to 96V',
+  };
+
   return (
-    <Card>
-      <PerformanceSpecificationsCard performanceData={performanceData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+    <Card sx={{ height: '90.5vh' }}>
+      <Scrollbar>
+        <PerformanceSpecificationsCard performanceData={performanceData} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <TechnicalSpecificationsCard technicalData={technicalData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+        <TechnicalSpecificationsCard technicalData={technicalData} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <SafetyComplianceCard safetyData={safetyData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+        <SafetyComplianceCard safetyData={safetyData} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <MonitoringControlCard monitoringData={monitoringData} />
-      <Divider sx={{ borderStyle: 'dashed' }} />
+        <MonitoringControlCard monitoringData={monitoringData} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
 
-      <EnvironmentalEconomicCard environmentalData={environmentalData} />
+        <EnvironmentalEconomicCard environmentalData={environmentalData} />
+        <Divider sx={{ borderStyle: 'dashed' }} />
+
+        <BMSSpecificationsCard bmsSpecificationData={bmsSpecificationData} />
+      </Scrollbar>
     </Card>
   );
 }

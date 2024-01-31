@@ -1,9 +1,7 @@
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
-import {
-  BatteryEfficiencyCard,
-} from './chart-cards';
+import { BatteryEfficiencyCard } from './chart-cards';
 // ----------------------------------------------------------------------
 
 export default function ChartsCard() {

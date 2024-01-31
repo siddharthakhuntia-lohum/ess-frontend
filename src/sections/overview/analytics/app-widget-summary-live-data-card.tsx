@@ -50,6 +50,13 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
     options,
   } = chart;
 
+  const soc = 82;
+  const soh = 97;
+  const voltage = 135;
+  const current = 8;
+  const highTemp = 14;
+  const lowTemp = 12;
+
   const lineChartOptions1 = useChart({
     colors: [(theme.palette.primary as PaletteColor).lighter],
     chart: {
@@ -78,7 +85,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => 
+        formatter: (value) =>
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -87,8 +94,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-           fPercent(value)
-        ,
+          fPercent(value),
         title: {
           formatter: () => '',
         },
@@ -125,7 +131,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => 
+        formatter: (value) =>
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -134,8 +140,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-           fPercent(value)
-        ,
+          fPercent(value),
         title: {
           formatter: () => '',
         },
@@ -172,7 +177,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => 
+        formatter: (value) =>
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -181,8 +186,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-           fPercent(value)
-        ,
+          fPercent(value),
         title: {
           formatter: () => '',
         },
@@ -219,7 +223,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
         show: true,
       },
       y: {
-        formatter: (value) => 
+        formatter: (value) =>
           //   if (tooltipFormat === 'dollar') {
           //     return `$${value}`;
           //   }
@@ -228,8 +232,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
           //   }
 
           // Default to percentage if not 'dollar'
-           fPercent(value)
-        ,
+          fPercent(value),
         title: {
           formatter: () => '',
         },
@@ -278,7 +281,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="subtitle2">SoC</Typography>
-          <Typography variant="h6">93%</Typography>
+          <Typography variant="h6">{soc} %</Typography>
         </Box>
 
         <Chart
@@ -294,7 +297,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="subtitle2">SoH</Typography>
-          <Typography variant="h6">93%</Typography>
+          <Typography variant="h6">{soh} %</Typography>
         </Box>
 
         <Chart
@@ -310,7 +313,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="subtitle2">Voltage</Typography>
-          <Typography variant="h6">100V</Typography>
+          <Typography variant="h6">{voltage} V</Typography>
         </Box>
 
         <Chart
@@ -326,7 +329,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
       <Box sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="subtitle2">Current</Typography>
-          <Typography variant="h6">0.3A</Typography>
+          <Typography variant="h6">{current} A</Typography>
         </Box>
 
         <Chart
@@ -341,9 +344,9 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
 
       <Divider sx={{ borderStyle: 'dashed' }} />
       <CustomStack>
-        <CustomTypography>Highest Temperature: 31 °C</CustomTypography>
+        <CustomTypography>Highest Temperature: {highTemp} °C</CustomTypography>
         <Divider orientation="vertical" flexItem sx={{ borderStyle: 'dashed', width: '20px' }} />
-        <CustomTypography>Lowest Temperature: 23 °C</CustomTypography>
+        <CustomTypography>Lowest Temperature: {lowTemp} °C</CustomTypography>
       </CustomStack>
     </Card>
   );
