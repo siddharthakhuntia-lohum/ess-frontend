@@ -66,7 +66,7 @@ export default function OverviewAnalyticsView() {
               }}
             />
             <EcommerceYearlySales
-              isGHG={true}
+              isGHG
               id="demo__4"
               title="GHG Savings"
               subheader={GHG_SUBTITLES[0]}

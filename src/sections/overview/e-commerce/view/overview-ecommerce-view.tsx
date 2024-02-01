@@ -106,6 +106,7 @@ export default function OverviewEcommerceView() {
 
         <Grid xs={12} md={6} lg={8}>
           <EcommerceYearlySales
+            isGHG={false}
             title="Yearly Sales"
             subheader="(+43%) than last year"
             chart={{
