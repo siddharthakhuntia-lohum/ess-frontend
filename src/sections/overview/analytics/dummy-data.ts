@@ -6,12 +6,40 @@ const seriesXData = Array.from({ length: 12 }, (_, index) => {
   return formattedDate;
 }).reverse();
 
+const seriesXDataMonths = Array.from({ length: 12 }, (_, index) => {
+  const date = new Date();
+  date.setMonth(date.getMonth() - index);
+  const formattedDate = date.toISOString().split('T')[0];
+  return formattedDate;
+}).reverse();
+
 const SOH_VALUES = [
   99.87, 99.75, 99.62, 99.5, 99.37, 99.25, 99.12, 99.0, 98.87, 98.75, 98.62, 98.53,
 ];
 
 // assuming SOC to be in the range 99% to 82% in decreasing order
-const SOC_VALUES = Array.from({ length: 12 }, (_, index) => (99 - index * 1.4).toFixed(2));
+const SOC_VALUES = [
+  100, 76, 100, 84, 100, 89, 100, 88, 100, 56, 100,
+  // 99.87, 99.75, 99.62, 99.5, 99.37, 99.25, 99.12, 99.0, 98.87, 98.75, 98.62, 98.53,
+];
+
+const VOLTAGE_VALUES = [
+  '148',
+  '130',
+  '148',
+  '138',
+  '148',
+  '141',
+  '148',
+  '141',
+  '148',
+  '128',
+  '148',
+];
+
+const CURRENT_VALUES = ['8', '-10', '9', '-12', '8`', '-15', '8', '-13', '8', '-13', '8'];
+
+// Array.from({ length: 12 }, (_, index) => (99 - index * 1.4).toFixed(2));
 
 // as power rating is 15kW,which is max rating,
 // asumming operating power to be in the range 10kW to 13kW
@@ -33,29 +61,28 @@ const POWER_VALUES = [
 
 // voltage is given to give 128v to 148v
 // const VOLTAGE_VALUES = Array.from({ length: 12 }, () => (Math.random() * 20 + 128).toFixed(2));
-const VOLTAGE_VALUES = [
-  '147.79',
-  '137.56',
-  '141.17',
-  '134.22',
-  '135.26',
-  '131.05',
-  '136.01',
-  '141.64',
-  '128.30',
-  '144.05',
-  '134.51',
-  '134.58',
-];
+// const VOLTAGE_VALUES = [
+//   '147.79',
+//   '137.56',
+//   '141.17',
+//   '134.22',
+//   '135.26',
+//   '131.05',
+//   '136.01',
+//   '141.64',
+//   '128.30',
+//   '144.05',
+//   '134.51',
+//   '134.58',
+// ];
 
 // calculating current from power and voltage
-const CURRENT_VALUES = POWER_VALUES.map((value, index) =>
-  (Number(value) / Number(VOLTAGE_VALUES[index])).toFixed(2)
-);
-// const CURRENT_VALUES = ['75.15', '90.01', '89.65', '87.40', '72.44', '80.10', '76.06', '83.09', '85.85', '83.91', '76.81', '78.74']
+// const CURRENT_VALUES = POWER_VALUES.map((value, index) =>
+//   (Number(value) / Number(VOLTAGE_VALUES[index])).toFixed(2)
+// );
 
 export const SOH_DATA = SOH_VALUES.map((value, index) => ({
-  x: seriesXData[index],
+  x: seriesXDataMonths[index],
   y: value,
 }));
 
@@ -75,7 +102,7 @@ export const CURRENT_DATA = CURRENT_VALUES.map((value, index) => ({
 }));
 
 export const GHG_SUBTITLES = [
-  'Our ESS in 1000 offices aims for a significant 3M-ton GHG reduction.',
+  'Our ESS if deployed in 1000 offices can result in significant 3M-ton GHG reduction.',
 
   'Deploying our ESS in 1000 offices targets a 3M-ton GHG cut.',
 

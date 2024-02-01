@@ -46,6 +46,7 @@ export default function OverviewAnalyticsView() {
                   'Oct',
                   'Nov',
                   'Dec',
+                  'Jan',
                 ],
                 series: [
                   {
@@ -53,11 +54,11 @@ export default function OverviewAnalyticsView() {
                     data: [
                       {
                         name: 'Battery Efficiency',
-                        data: [94, 97, 95, 96, 93, 97, 94, 95, 93, 96],
+                        data: [94, 97, 95, 96, 93, 97, 94, 95, 93, 96, 95, 95, 96],
                       },
                       {
                         name: 'Invertor Efficiency',
-                        data: [94, 91, 92, 90, 92, 93, 91, 90, 92, 93],
+                        data: [94, 91, 92, 90, 92, 93, 91, 90, 92, 93, 92, 93, 93.5],
                       },
                     ],
                   },
@@ -68,7 +69,7 @@ export default function OverviewAnalyticsView() {
               isGHG={true}
               id="demo__4"
               title="GHG Savings"
-              subheader={GHG_SUBTITLES[2]}
+              subheader={GHG_SUBTITLES[0]}
               chart={{
                 categories: [
                   'Jan',
