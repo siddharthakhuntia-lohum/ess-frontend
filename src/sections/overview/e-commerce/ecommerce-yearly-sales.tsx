@@ -14,6 +14,7 @@ import CustomPopover, { usePopover } from 'src/components/custom-popover';
 // ----------------------------------------------------------------------
 
 interface Props extends CardProps {
+  isGHG: boolean;
   title?: string;
   subheader?: string;
   chart: {
@@ -30,9 +31,9 @@ interface Props extends CardProps {
   };
 }
 
-const ghgFormat = (val: number) => `${fNumber(val/Number(1000))}`;
+const ghgFormat = (val: number) => `${fNumber(val / Number(1000))}`;
 
-export default function EcommerceYearlySales({ title, subheader, chart, ...other }: Props) {
+export default function EcommerceYearlySales({ isGHG, title, subheader, chart, ...other }: Props) {
   const { colors, categories, series, options } = chart;
 
   const popover = usePopover();
@@ -52,7 +53,10 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
     yaxis: {
       labels: {
         formatter(val: number) {
-          return ghgFormat(val);
+          if (isGHG) {
+            return ghgFormat(val);
+          }
+          return `${fNumber(val)}`;
         },
       },
       min: title === 'Efficiency' ? 0 : undefined,
@@ -61,7 +65,7 @@ export default function EcommerceYearlySales({ title, subheader, chart, ...other
     tooltip: {
       y: {
         formatter(val: number) {
-          return `${ghgFormat(val)} Tons`;
+          return isGHG ? `${ghgFormat(val)} Tons` : `${fNumber(val)}`;
         },
       },
     },

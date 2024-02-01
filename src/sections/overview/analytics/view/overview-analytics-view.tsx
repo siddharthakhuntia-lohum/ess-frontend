@@ -28,6 +28,7 @@ export default function OverviewAnalyticsView() {
         <Grid item xs={12} sm={5}>
           <Stack direction="column" spacing={2}>
             <EcommerceYearlySales
+              isGHG={false}
               id="demo__4"
               title="Efficiency"
               subheader="(+12%) than last year"
@@ -64,6 +65,7 @@ export default function OverviewAnalyticsView() {
               }}
             />
             <EcommerceYearlySales
+              isGHG={true}
               id="demo__4"
               title="GHG Savings"
               subheader={GHG_SUBTITLES[2]}
