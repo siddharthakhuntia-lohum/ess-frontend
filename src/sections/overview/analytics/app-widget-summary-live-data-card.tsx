@@ -48,7 +48,7 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
 
   const { options } = chart;
 
-  const soc = 100;
+  const soc = 84;
   const soh = 98.5;
   const voltage = 135;
   const current = 8;
