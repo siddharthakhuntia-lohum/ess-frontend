@@ -25,6 +25,7 @@ import { AuthProvider } from 'src/auth/context/jwt';
 
 // ----------------------------------------------------------------------
 
+
 export const viewport = {
   themeColor: '#000000',
   width: 'device-width',
