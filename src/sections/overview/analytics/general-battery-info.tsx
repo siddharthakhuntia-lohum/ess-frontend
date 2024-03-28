@@ -287,17 +287,17 @@ const BMSSpecificationsCard = ({ bmsSpecificationData }: BMSSpecificationProps) 
 
 export default function BatteryInfo() {
   const performanceData = {
-    capacity: '15 kWh',
-    powerRating: '15 kW',
-    energyDensity: '176 Wh/kg',
+    capacity: '14.8 kWh',
+    powerRating: '14.8 kW',
+    energyDensity: '414 Wh/kg',
     efficiency: '98%',
     responseTime: '1 sec',
   };
 
   const technicalData = {
     batteryType: 'Lithium-ion',
-    cycleLife: '2500 cycles',
-    temperatureRange: '-20°C to 40°C',
+    cycleLife: '2000 cycles',
+    temperatureRange: '-20°C to 45°C',
     scalability: 'Up to 10 MW',
   };
 
@@ -319,11 +319,11 @@ export default function BatteryInfo() {
   };
 
   const bmsSpecificationData = {
-    externalCommunications: 'CAN 2.0B (configurable)',
-    switching: 'Redundant, 3-contactor based',
-    cellChemistry: 'Agnostic',
-    numberOfCellsPerSalve: '10 upto 30',
-    voltagePerSlaveBattery: '32V to 96V',
+    externalCommunications: 'RS-485',
+    switching: 'Redundant, 2-contactor based',
+    cellChemistry: 'NMC',
+    numberOfCellsPerSalve: '18',
+    voltagePerSlaveBattery: '66.1 V',
   };
 
   return (

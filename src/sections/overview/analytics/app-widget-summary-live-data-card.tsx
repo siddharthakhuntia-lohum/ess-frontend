@@ -48,12 +48,12 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
 
   const { options } = chart;
 
-  const soc = 84;
-  const soh = 98.5;
-  const voltage = 135;
+  const soc = 32;
+  const soh = 98;
+  const voltage = 131;
   const current = 8;
-  const highTemp = 14;
-  const lowTemp = 12;
+  const highTemp = 21;
+  const lowTemp = 18;
 
   const SOH_CHART_OPTIONS = useChart({
     colors: [(theme.palette.primary as PaletteColor).light],
@@ -272,10 +272,16 @@ export default function LiveDataCustomCard({ title, percent, total, chart, sx, .
 
       <Divider sx={{ borderStyle: 'dashed' }} />
       <CustomStack>
-        <CustomTypography>Highest Temperature: {highTemp} °C</CustomTypography>
-        <Divider orientation="vertical" flexItem sx={{ borderStyle: 'dashed', width: '20px' }} />
-        <CustomTypography>Lowest Temperature: {lowTemp} °C</CustomTypography>
-      </CustomStack>
+  <CustomTypography>
+    Highest Temperature:
+    <span style={{ display: 'block' }}>{highTemp} °C</span>
+  </CustomTypography>
+  <Divider orientation="vertical" flexItem sx={{ borderStyle: 'dashed', width: '20px' }} />
+  <CustomTypography>
+    Lowest Temperature:
+    <span style={{ display: 'block' }}>{lowTemp} °C</span>
+  </CustomTypography>
+</CustomStack>
     </Card>
   );
 }
